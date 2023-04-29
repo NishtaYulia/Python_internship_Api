@@ -26,15 +26,17 @@ trees = {
     ]
 }
 
+
 class Main(Resource):
-    def get(self, tree):
-        #return tree
-        return Tree.fromstring(f"{tree}")
+
+    def get(self):
+        #Tree.fromstring(f"{tree}")
+        return trees
 
 
-#api.add_resource(Main, "/api/courses")
-api.add_resource(Main, "/paraphrase?tree=<tree>")
+#api.add_resource(Main, "/api/<tree>")
+api.add_resource(Main, "/api/tree")
 api.init_app(app)
 
-if __name__=="__main__":
+if __name__ == "__main__":
     app.run(debug=True, port=3000, host="127.0.0.1")
